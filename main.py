@@ -1,10 +1,13 @@
-def my_sum(x, y):
-    s = 0
-    for number in range(x, y +1 ):
-        s = s + number
-    print("Сума між початковим та кінцевим", s)
-x=int(input("Введіть початковє значення - "))
-y=int(input("Введіть кінцеве значення - "))
+def is_prime(number):
+    if number <= 1:
+        print("false")
+        return False
+    for i in range(2, int(number**0.5) + 1):
+        if number % i == 0:
+            print("false")
+            return False
+    print("True")
+    return True
 
-
-my_sum(x,y)
+number = int(input("введіть число для перевірки чи є воно простим - "))
+is_prime(number)
