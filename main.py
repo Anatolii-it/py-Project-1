@@ -1,11 +1,10 @@
-try:
-   s=c=e= 0
-   input_str = input("Введіть числа через пробіл - ")
-   numbers = list(map(int,input_str.split()))
-   for num in numbers:
-      s += num
-      c = c + 1
-   e = int(s/c)
-   print("Сума дорівнює" ,s , "Середньоаріфметичне" , e)
-except Exception as e:
-   print(e)
+def print_text():
+   myStr1 = """"Don't let noise of others' opinions  """
+   myStr2 ="""drown out your own inner voice." """
+   myStr3 = "Steve Jobs"
+   print(myStr1)
+   print(myStr2)
+   print("\033[3m\033[33m" + myStr3)
+print_text()
+
+
