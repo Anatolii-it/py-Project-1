@@ -1,10 +1,14 @@
-def print_text():
-   myStr1 = """"Don't let noise of others' opinions  """
-   myStr2 ="""drown out your own inner voice." """
-   myStr3 = "Steve Jobs"
-   print(myStr1)
-   print(myStr2)
-   print("\033[3m\033[33m" + myStr3)
-print_text()
+def hyppi(s):
+    a = [int(i) for i in s]
+    if sum(a[:3]) == sum(a[3:]):
+        print("True")
+        return True
+    else:
+        print("False")
+        return False
+
+s = input("Введіть число для перевірки чи є щасливе - ")
+
+hyppi(s)
 
 
