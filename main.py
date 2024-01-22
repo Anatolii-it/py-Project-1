@@ -10,4 +10,5 @@ my_list = [9, 2, 7, 4, 5]
 rezultat = my_minimum(my_list)
 
 if __name__ == '__main__':
-    print("Сума елементів" ,rezultat)
+    print("мінімум зі списку" ,rezultat)
+    print(my_list)
