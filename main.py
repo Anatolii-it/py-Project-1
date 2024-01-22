@@ -1,7 +1,13 @@
-from func import my_sum
 
-#x=int(input("Введіть x - "))
-#y=int(input("Введіть y - "))
+def neparni(x, y):
+
+   for zminna in range(x , y+1):
+      if zminna % 2 != 0:
+         print(zminna , end=" ")
+
+   z = x = y = 0
+x = int(input('Введіть початкове число - '))
+y = int(input("Введіть кінцеве число - "))
 if __name__ == '__main__':
-   result = my_sum(1.45,2)
-   print(result)
+   neparni(x,y)
+   print("Непарні")
