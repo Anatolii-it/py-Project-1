@@ -1,7 +1,12 @@
-try:
-   S = input("введіть рядок")
-   l = S.split()
-   print("слів в рядкові", len(l))
+def my_sum(list):
+    summa = 0
+    for i in list:
+        summa += i
+    return summa
 
-except Exception as e:
-   print(e)
+
+my_list = [1, 2, 3, 4, 5]
+rezultat = my_sum(my_list)
+
+if __name__ == '__main__':
+    print("Сума елементів" ,rezultat)
