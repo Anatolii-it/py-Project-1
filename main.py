@@ -1,10 +1,14 @@
-def neparni_test(x, y):
-   for number in range(1 + 1, 12):
-      if number % 2 != 0:
-         print(number,end=' ')
+def summa(x, y):
+   z = 0
+   for number in range(x, y+1):
+      z = z + number
+   print("Сумма" , z)
 
-x=int(input("Введіть початковє значення"))
-y=int(input("Введіть кінцеве значення"))
-neparni_test(x,y)
+
+x=int(input("Введіть початковє значення - "))
+y=int(input("Введіть кінцеве значення - "))
+if __name__ == '__main__':
+   summa(x,y)
+
 
 
