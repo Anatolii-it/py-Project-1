@@ -1,12 +1,12 @@
-def my_dob(list):
-    dobutok = 1
+def my_sum(list):
+    summa = 0
     for i in list:
-        dobutok *= i
-    return dobutok
+        summa += i
+    return summa
 
 
 my_list = [1, 2, 3, 4, 5]
-rezultat = my_dob(my_list)
+rezultat = my_sum(my_list)
 
 if __name__ == '__main__':
-    print("Добуток елементів" ,rezultat)
+    print("Сума елементів" ,rezultat)
