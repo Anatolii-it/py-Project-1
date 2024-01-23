@@ -1,17 +1,6 @@
-def p_p_number(number):
-    if number <= 1:
-        return False
-    for divisor in range(2, number):
-        if number % divisor == 0:
-            return False
-    return True
+from func import p_p_number
+from func import k_p_numbers
 
-def k_p_numbers(list):
-    s = 0
-    for number in list:
-        if p_p_number(number):
-            s += 1
-    return s
 
 
 my_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
