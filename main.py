@@ -1,9 +1,4 @@
-def my_dob(list):
-    dobutok = 1
-    for i in list:
-        dobutok *= i
-    print("Добуток елементів - " , dobutok)
-
+from func import my_dob
 
 my_list = [9, 2, 7, 4, 5]
 
