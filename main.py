@@ -2,11 +2,10 @@ def my_dob(list):
     dobutok = 1
     for i in list:
         dobutok *= i
-    return dobutok
+    print("Добуток елементів - " , dobutok)
 
 
-my_list = [1, 2, 3, 4, 5]
-rezultat = my_dob(my_list)
+my_list = [9, 2, 7, 4, 5]
 
 if __name__ == '__main__':
-    print("Добуток елементів" ,rezultat)
+    my_dob(my_list)
