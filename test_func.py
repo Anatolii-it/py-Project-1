@@ -15,3 +15,8 @@ class TestFunc(unittest.TestCase):
         my_list = [-2, -3, -4]
         my_dob(my_list)
         assert True
+
+    def test_zeros(self):
+        my_list = [0, 0, 0]
+        my_dob(my_list)
+        assert True
