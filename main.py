@@ -1,12 +1,9 @@
-def my_sum(list):
-    summa = 0
-    for i in list:
-        summa += i
-    return summa
+def my_max(list):
+    print("Максимальне зі списку - " , max(list))
 
 
-my_list = [1, 2, 3, 4, 5]
-rezultat = my_sum(my_list)
+
+my_list = [9, 2, 7, 4, 5]
 
 if __name__ == '__main__':
-    print("Сума елементів" ,rezultat)
+    my_max(my_list)
