@@ -1,6 +1,7 @@
-def summa_lists(list1, list2):
-    s_lists = list1 + list2
-    return s_lists
+def stupen(list_stupendous, list_number):
+    stupen_list = [number ** list_stupendous for number in list_number]
+    return stupen_list
+    print(stupen_list)
 
 
 

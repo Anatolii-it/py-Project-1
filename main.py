@@ -1,9 +1,7 @@
-from func import summa_lists
+from func import stupen
 
-list1 = [1, 2, 3]
-list2 = [4, 5, 6]
 
+list_stupen = [2]
+list_number = [4, 5, 6]
 if __name__ == '__main__':
-    summa_lists(list1, list2)
-    result = summa_lists(list1, list2)
-    print(result)
+    stupen(list_stupen, list_number)
