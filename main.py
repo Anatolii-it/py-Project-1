@@ -1,9 +1,7 @@
-def my_max(list):
-    print("Максимальне зі списку - " , max(list))
+from func import analyze_numbers
 
-
-
-my_list = [9, 2, 7, 4, 5]
+numbers =[1, 2, 3, 4, 5, 6, 7, 8, 9, -1, -3, -4]
 
 if __name__ == '__main__':
-    my_max(my_list)
+    analyze_numbers(numbers)
+
