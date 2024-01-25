@@ -1,6 +1,6 @@
 from func import c_factorials
 
-numbers = [3, 4, 5, 6]
+numbers = [3, 4, 5, 6, 9, -2]
 
 if __name__ == '__main__':
     c_factorials(numbers)
