@@ -7,3 +7,5 @@ def factorial(n):
 def c_factorials(numbers):
     factorials = int([factorial(x) for x in numbers])
     return factorials
+
+
