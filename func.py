@@ -1,5 +1,4 @@
-def r_list(list):
-    print("Вхідний список    ",list)
-    print("Реверсивний список",list[::-1])
-    return list
-
+def serch_number(list, number):
+    x = list.count(number)
+    print("Число ",number,"знайдено ",x, "раз")
+    return x

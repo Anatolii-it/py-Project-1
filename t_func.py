@@ -3,22 +3,44 @@ import unittest
 from func import *
 
 class TestFunc(unittest.TestCase):
-    def test_reverse_list_of_integers(self):
-        input_list = [1, 2, 3, 4, 5]
-        expected_output = [5, 4, 3, 2, 1]
-        actual_output = r_list(input_list[::-1])
-        assert actual_output == expected_output
+    def test_correct_count(self):
+        lst = [1, 2, 3, 4, 5, 5, 5]
+        number = 5
+        result = serch_number(lst, number)
+        assert result == 3
 
-    def test_reverse_list_of_strings(self):
-        input_list = ["apple", "banana", "cherry"]
-        expected_output = ["cherry", "banana", "apple"]
-        actual_output = r_list(input_list[::-1])
-        assert actual_output == expected_output
+    def test_return_count(self):
+        lst = [1, 2, 3, 4, 5, 5, 5]
+        number = 5
+        result = serch_number(lst, number)
+        assert isinstance(result, int)
 
-    def test_reverse_list_with_none_values(self):
-        input_list = [None, 1, None, 3, None]
-        expected_output = [None, 3, None, 1, None]
-        actual_output = r_list(input_list[::-1])
-        assert actual_output == expected_output
+    def test_various_lengths(self):
+        lst1 = [1, 2, 3, 4, 5]
+        lst2 = [1, 2, 3, 4, 5, 5]
+        lst3 = [1, 2, 3, 4, 5, 5, 5]
+        number = 5
+        result1 = serch_number(lst1, number)
+        result2 = serch_number(lst2, number)
+        result3 = serch_number(lst3, number)
+        assert result1 == 1
+        assert result2 == 2
+        assert result3 == 3
 
+    def test_number_not_in_list(self):
+        lst = [1, 2, 3, 4, 5]
+        number = 6
+        result = serch_number(lst, number)
+        assert result == 0
 
+    def test_empty_list(self):
+        lst = []
+        number = 5
+        result = serch_number(lst, number)
+        assert result == 0
+
+    def test_single_element_list(self):
+        lst = [5]
+        number = 5
+        result = serch_number(lst, number)
+        assert result == 1
