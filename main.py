@@ -1,12 +1,24 @@
-def my_sum(list):
-    summa = 0
-    for i in list:
-        summa += i
-    return summa
+def replaceTextInFile(fileName, originText, newText):
+    with open(fileName) as fileHandler:
+        data = fileHandler.read()
+        data = data.replace(originText, newText)
+
+    with open(fileName, 'w') as fileHandler:
+        fileHandler.write(data)
 
 
-my_list = [1, 2, 3, 4, 5]
-rezultat = my_sum(my_list)
+def readFromFile(fileName):
+    with open(fileName) as fileHandler:
+        data = fileHandler.read()
+        print(data)
 
-if __name__ == '__main__':
-    print("Сума елементів" ,rezultat)
+
+myFile = 'test.txt'
+
+print("Original file content:")
+readFromFile(myFile)
+
+replaceTextInFile(myFile, 'пока', 'while')
+
+print("New file content:")
+readFromFile(myFile)
