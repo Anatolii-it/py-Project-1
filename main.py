@@ -1,60 +1,69 @@
 import flet as ft
-
 def main(page: ft.Page):
-    page.title = "Containers - clickable and not"
-    page.vertical_alignment = ft.MainAxisAlignment.CENTER
-    page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
-
-    page.add(
-        ft.Row(
-            [
-                ft.Container(
-                    content=ft.Text("Non clickable"),
-                    margin=10,
-                    padding=10,
-                    alignment=ft.alignment.center,
-                    bgcolor=ft.colors.AMBER,
-                    width=150,
-                    height=150,
-                    border_radius=10,
-                ),
-                ft.Container(
-                    content=ft.Text("Clickable without Ink"),
-                    margin=10,
-                    padding=10,
-                    alignment=ft.alignment.center,
-                    bgcolor=ft.colors.GREEN_200,
-                    width=150,
-                    height=150,
-                    border_radius=10,
-                    on_click=lambda e: print("Clickable without Ink clicked!"),
-                ),
-                ft.Container(
-                    content=ft.Text("Clickable with Ink"),
-                    margin=10,
-                    padding=10,
-                    alignment=ft.alignment.center,
-                    bgcolor=ft.colors.CYAN_200,
-                    width=150,
-                    height=150,
-                    border_radius=10,
-                    ink=True,
-                    on_click=lambda e: print("Clickable with Ink clicked!"),
-                ),
-                ft.Container(
-                    content=ft.Text("Clickable transparent with Ink"),
-                    margin=10,
-                    padding=10,
-                    alignment=ft.alignment.center,
-                    width=150,
-                    height=150,
-                    border_radius=10,
-                    ink=True,
-                    on_click=lambda e: print("Clickable transparent with Ink clicked!"),
-                ),
-            ],
-            alignment=ft.MainAxisAlignment.CENTER,
-        ),
+    page.title = "Крестікі нолікі"
+    page.padding = 0
+    def on_click(e):
+        page.window_close(),
+    appbar = ft.AppBar(
+        center_title=True,
+        title=ft.Text("Крестікі нолікі"),
+        leading=ft.Icon(name=ft.icons.TERMINAL),
+        actions=[
+            ft.IconButton(
+                icon=ft.icons.SETTINGS,
+                tooltip="Settings",
+            ),
+            ft.IconButton(
+                icon=ft.icons.EXIT_TO_APP_ROUNDED,
+                tooltip="Exit",
+                on_click=on_click,
+            ),
+        ],
     )
+    card = ft.Card(
+        width=page.width * 0.8,
+        height=page.height * 0.8,
+        content=ft.Text("Hello World")
 
+    )
+    main_container = ft.Container(
+        alignment=ft.alignment.center,
+        gradient=ft.LinearGradient(
+            begin=ft.alignment.top_left,
+            end=ft.alignment.bottom_right,
+            colors=[
+                "0xff00B2FF",
+                "0xffA258FF",
+                "0xffDB00FF",
+            ],
+            tile_mode=ft.GradientTileMode.MIRROR,
+        ),
+        expand=True,
+    )
+    column = ft.Column(
+        expand=True,
+        alignment=ft.MainAxisAlignment.CENTER,
+        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+        controls=[
+            card,
+        ]
+    )
+    row = ft.Row(
+        expand=True,
+        alignment=ft.MainAxisAlignment.CENTER,
+        controls=[
+            column,
+        ]
+    )
+    padding = ft.Padding(top=10, bottom=0, left=0, right=0)
+    stack = ft.Stack(
+        expand=True,
+        controls=[
+            main_container,
+            row,
+        ]
+    )
+    page.appbar = appbar
+    page.add(stack)
+    page.update()
 ft.app(target=main)
