@@ -26,32 +26,139 @@ def main(page):
             content=ft.Container(
                 content=ft.Column(
                     [
+                        ft.IconButton(
+                            icon=ft.icons.EXIT_TO_APP_ROUNDED,
+                            tooltip="Exit",
+                            on_click=on_click,
+                        ),
                         ft.ListTile(
-                            leading=ft.Icon(ft.icons.ALBUM),
-                            title=ft.Text("The Enchanted Nightingale"),
+
+                            title=ft.Text("давай зіграємо в крестікі нолікі"),
                             subtitle=ft.Text(
-                                "Music by Julie Gable. Lyrics by Sidney Stein."
+                                "Правила гри по черзі натисніть на пустий квадрат перший хід - х "
                             ),
                         ),
                         ft.Row(
-                            [ft.TextButton("o"),
-                                ft.TextButton("x"),
-                                ft.TextButton("x")],
+                            [ft.Container(
+                            content=ft.Text("1"),
+                            margin=10,
+                            padding=10,
+                            alignment=ft.alignment.center,
+                            bgcolor=ft.colors.CYAN_200,
+                            width=50,
+                            height=50,
+                            border_radius=10,
+                            ink=True,
+                            on_click=lambda e: (x := 1, y := 1, print("Clickable with Ink clicked!", x, y)),
+                        ),
+                        ft.Container(
+                            content=ft.Text("2"),
+                            margin=10,
+                            padding=10,
+                            alignment=ft.alignment.center,
+                            bgcolor=ft.colors.CYAN_200,
+                            width=50,
+                            height=50,
+                            border_radius=10,
+                            ink=True,
+                            on_click=lambda e: (x := 2, y := 1, print("Clickable with Ink clicked!", x, y)),
+                        ),
+                        ft.Container(
+                            content=ft.Text("3"),
+                            margin=10,
+                            padding=10,
+                            alignment=ft.alignment.center,
+                            bgcolor=ft.colors.CYAN_200,
+                            width=50,
+                            height=50,
+                            border_radius=10,
+                            ink=True,
+                            on_click=lambda e: (x := 3 , y := 1 , print("Clickable with Ink clicked!",x,y)),
+                        ),
+                    ],
+                        alignment=ft.MainAxisAlignment.END,
+                        ),
+                        ft.Row(
+                            [ft.Container(
+                                content=ft.Text("1"),
+                                margin=10,
+                                padding=10,
+                                alignment=ft.alignment.center,
+                                bgcolor=ft.colors.CYAN_200,
+                                width=50,
+                                height=50,
+                                border_radius=10,
+                                ink=True,
+                                on_click=lambda e: (x := 1, y := 2, print("Clickable with Ink clicked!", x, y)),
+                            ),
+                                ft.Container(
+                                    content=ft.Text("2"),
+                                    margin=10,
+                                    padding=10,
+                                    alignment=ft.alignment.center,
+                                    bgcolor=ft.colors.CYAN_200,
+                                    width=50,
+                                    height=50,
+                                    border_radius=10,
+                                    ink=True,
+                                    on_click=lambda e: (x := 2, y := 2, print("Clickable with Ink clicked!", x, y)),
+                                ),
+                                ft.Container(
+                                    content=ft.Text("3"),
+                                    margin=10,
+                                    padding=10,
+                                    alignment=ft.alignment.center,
+                                    bgcolor=ft.colors.CYAN_200,
+                                    width=50,
+                                    height=50,
+                                    border_radius=10,
+                                    ink=True,
+                                    on_click=lambda e: (x := 3, y := 2, print("Clickable with Ink clicked!", x, y)),
+                                ),
+                            ],
                             alignment=ft.MainAxisAlignment.END,
                         ),
                         ft.Row(
-                            [ft.TextButton("o", tooltip = "Exit",on_click = on_click), #позволяет обработать нажатие и вихід
-                                ft.TextButton("x"),
-                                ft.TextButton("x")],
+                            [ft.Container(
+                                content=ft.Text("1"),
+                                margin=10,
+                                padding=10,
+                                alignment=ft.alignment.center,
+                                bgcolor=ft.colors.CYAN_200,
+                                width=50,
+                                height=50,
+                                border_radius=10,
+                                ink=True,
+                                on_click=lambda e: (x := 1 , y := 3, print("Clickable with Ink clicked!", x, y)),
+                            ),
+                                ft.Container(
+                                    content=ft.Text("2"),
+                                    margin=10,
+                                    padding=10,
+                                    alignment=ft.alignment.center,
+                                    bgcolor=ft.colors.CYAN_200,
+                                    width=50,
+                                    height=50,
+                                    border_radius=10,
+                                    ink=True,
+                                    on_click=lambda e: (x := 2 , y := 3, print("Clickable with Ink clicked!", x, y)),
+                                ),
+                                ft.Container(
+                                    content=ft.Text("3"),
+                                    margin=10,
+                                    padding=10,
+                                    alignment=ft.alignment.center,
+                                    bgcolor=ft.colors.CYAN_200,
+                                    width=50,
+                                    height=50,
+                                    border_radius=10,
+                                    ink=True,
+                                    on_click=lambda e: (x := 3 , y := 3, print("Clickable with Ink clicked!", x, y)),
+                                ),
+                            ],
                             alignment=ft.MainAxisAlignment.END,
                         ),
-                        ft.Row(
-                            [ft.TextButton("x"),
-                                ft.TextButton("o"),
-                                ft.TextButton("x")
-                                ],
-                            alignment=ft.MainAxisAlignment.END,
-                        ),
+
                     ]
                 ),
                 width=400,
@@ -59,5 +166,5 @@ def main(page):
             )
         )
     )
-
+x=y=0
 ft.app(target=main)
