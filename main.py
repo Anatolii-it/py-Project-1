@@ -1,7 +1,8 @@
 import flet as ft
-def main(page: ft.Page):
-    page.title = "Крестікі нолікі"
-    page.padding = 0
+
+def main(page):
+    page.title = "Card Example"
+
     def on_click(e):
         page.window_close(),
     appbar = ft.AppBar(
@@ -20,50 +21,43 @@ def main(page: ft.Page):
             ),
         ],
     )
-    card = ft.Card(
-        width=page.width * 0.8,
-        height=page.height * 0.8,
-        content=ft.Text("Hello World")
+    page.add(
+        ft.Card(
+            content=ft.Container(
+                content=ft.Column(
+                    [
+                        ft.ListTile(
+                            leading=ft.Icon(ft.icons.ALBUM),
+                            title=ft.Text("The Enchanted Nightingale"),
+                            subtitle=ft.Text(
+                                "Music by Julie Gable. Lyrics by Sidney Stein."
+                            ),
+                        ),
+                        ft.Row(
+                            [ft.TextButton("o"),
+                                ft.TextButton("x"),
+                                ft.TextButton("x")],
+                            alignment=ft.MainAxisAlignment.END,
+                        ),
+                        ft.Row(
+                            [ft.TextButton("o", tooltip = "Exit",on_click = on_click), #позволяет обработать нажатие и вихід
+                                ft.TextButton("x"),
+                                ft.TextButton("x")],
+                            alignment=ft.MainAxisAlignment.END,
+                        ),
+                        ft.Row(
+                            [ft.TextButton("x"),
+                                ft.TextButton("o"),
+                                ft.TextButton("x")
+                                ],
+                            alignment=ft.MainAxisAlignment.END,
+                        ),
+                    ]
+                ),
+                width=400,
+                padding=10,
+            )
+        )
+    )
 
-    )
-    main_container = ft.Container(
-        alignment=ft.alignment.center,
-        gradient=ft.LinearGradient(
-            begin=ft.alignment.top_left,
-            end=ft.alignment.bottom_right,
-            colors=[
-                "0xff00B2FF",
-                "0xffA258FF",
-                "0xffDB00FF",
-            ],
-            tile_mode=ft.GradientTileMode.MIRROR,
-        ),
-        expand=True,
-    )
-    column = ft.Column(
-        expand=True,
-        alignment=ft.MainAxisAlignment.CENTER,
-        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-        controls=[
-            card,
-        ]
-    )
-    row = ft.Row(
-        expand=True,
-        alignment=ft.MainAxisAlignment.CENTER,
-        controls=[
-            column,
-        ]
-    )
-    padding = ft.Padding(top=10, bottom=0, left=0, right=0)
-    stack = ft.Stack(
-        expand=True,
-        controls=[
-            main_container,
-            row,
-        ]
-    )
-    page.appbar = appbar
-    page.add(stack)
-    page.update()
 ft.app(target=main)
