@@ -1,5 +1,5 @@
 import flet as ft
-x = y = 0
+x = y = (0)
 def main(page):
     page.title = "Card Example"
 
