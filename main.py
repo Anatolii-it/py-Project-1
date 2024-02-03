@@ -5,10 +5,9 @@ desk = [[" " for _ in range(3)] for _ in range(3)]
 sim = ["X", "O"]
 
 def main(page):
-    page.title = "крестики нолики"
+    page.title = "Крестики-нолики"
 
     def check_victory(desk, s):
-        #print("перевірка на перемогу")
         for m_string in desk:
             if all(s == i for i in m_string):
                 return True
@@ -19,50 +18,44 @@ def main(page):
             return True
         return False
 
-    def steps(x, y):
-        global step
+    def steps(x, y, step):
         try:
-            while (step >= 0):
-                lin, st = (x, y)
-                #st = y
-                #print(desk)
+            lin, st = (x, y)
 
-                #w_desk(desk)
-                if desk[lin][st] == " ":
-                    desk[lin][st] = sim[step % 2]
-                    if check_victory(desk, sim[step % 2]):
-                        #w_desk(desk)
-                        print(f"Гравець {sim[step % 2]} здобув перемогу!")
-                        break
-                    step += 1
-                else:
-                    print("ця клитина зайнята ." )
-                return check_victory(desk,sim[step % 2])
+            if desk[lin][st] == " ":
+                desk[lin][st] = sim[step % 2]
+                if check_victory(desk, sim[step % 2]):
+                    print(f"Гравець {sim[step % 2]} здобув перемогу!")
+                return step + 1
+            else:
+                print("Ця клітина вже зайнята.")
+            return step
         except Exception as e:
             print(e)
 
-    def on_click(x, y):
-        #page.window_close(),
-        return steps(x, y)
+    def on_click(x, y, container):
+        global step
+        step = steps(x, y, step)
+        container.content = ft.Text(sim[step % 2])
 
-
+    text_widget = ft.Text(sim[step % 2])
 
     page.add(
         ft.Card(
+            width = 480,
             content=ft.Container(
                 content=ft.Column(
                     [
                         ft.ListTile(
-                            title=ft.Text("Крестики нолики"),
+                            title=ft.Text("Крестики-нолики"),
                             subtitle=ft.Text(
-                                "Rules: Click on an empty square to make a move. First move - X."
+                                "Робіть ходи по черзі перший хід це- Х ."
                             ),
                         ),
                         ft.Row(
                             [
                                 ft.Container(
-
-                                    content=ft.Text(sim[step % 2]),
+                                    content=text_widget,
                                     margin=10,
                                     padding=10,
                                     alignment=ft.alignment.center,
@@ -71,9 +64,7 @@ def main(page):
                                     height=50,
                                     border_radius=10,
                                     ink=True,
-                                    on_click=lambda e: on_click(0,  0,),
-
-
+                                    on_click=lambda e: on_click(0, 0, text_widget),
                                 ),
                                 ft.Container(
                                     content=ft.Text("2"),
@@ -85,7 +76,7 @@ def main(page):
                                     height=50,
                                     border_radius=10,
                                     ink=True,
-                                    on_click=lambda e: on_click(0, 1, )
+                                    on_click=lambda e: on_click(0, 1, text_widget),
                                 ),
                                 ft.Container(
                                     content=ft.Text("3"),
@@ -97,49 +88,7 @@ def main(page):
                                     height=50,
                                     border_radius=10,
                                     ink=True,
-                                    on_click=lambda e: on_click(0, 2, )
-                                ),
-                                # Add similar containers for other cells
-                            ],
-                            alignment=ft.MainAxisAlignment.END,
-                        ),
-                        ft.Row(
-                            [
-                                ft.Container(
-                                content=ft.Text("1"),
-                                margin=10,
-                                padding=10,
-                                alignment=ft.alignment.center,
-                                bgcolor=ft.colors.CYAN_200,
-                                width=50,
-                                height=50,
-                                border_radius=10,
-                                ink=True,
-                                on_click=lambda e: on_click(1, 0, )
-                            ),
-                                ft.Container(
-                                    content=ft.Text("2"),
-                                    margin=10,
-                                    padding=10,
-                                    alignment=ft.alignment.center,
-                                    bgcolor=ft.colors.CYAN_200,
-                                    width=50,
-                                    height=50,
-                                    border_radius=10,
-                                    ink=True,
-                                    on_click=lambda e: on_click(1, 1, )
-                                ),
-                                ft.Container(
-                                    content=ft.Text("3"),
-                                    margin=10,
-                                    padding=10,
-                                    alignment=ft.alignment.center,
-                                    bgcolor=ft.colors.CYAN_200,
-                                    width=50,
-                                    height=50,
-                                    border_radius=10,
-                                    ink=True,
-                                    on_click=lambda e: on_click(1, 2, )
+                                    on_click=lambda e: on_click(0, 2, text_widget),
                                 ),
                             ],
                             alignment=ft.MainAxisAlignment.END,
@@ -147,17 +96,17 @@ def main(page):
                         ft.Row(
                             [
                                 ft.Container(
-                                content=ft.Text("1"),
-                                margin=10,
-                                padding=10,
-                                alignment=ft.alignment.center,
-                                bgcolor=ft.colors.CYAN_200,
-                                width=50,
-                                height=50,
-                                border_radius=10,
-                                ink=True,
-                                on_click=lambda e: on_click(2, 0, )
-                            ),
+                                    content=ft.Text("1"),
+                                    margin=10,
+                                    padding=10,
+                                    alignment=ft.alignment.center,
+                                    bgcolor=ft.colors.CYAN_200,
+                                    width=50,
+                                    height=50,
+                                    border_radius=10,
+                                    ink=True,
+                                    on_click=lambda e: on_click(1, 0, text_widget),
+                                ),
                                 ft.Container(
                                     content=ft.Text("2"),
                                     margin=10,
@@ -168,7 +117,7 @@ def main(page):
                                     height=50,
                                     border_radius=10,
                                     ink=True,
-                                    on_click=lambda e: on_click(2, 1, )
+                                    on_click=lambda e: on_click(1, 1, text_widget),
                                 ),
                                 ft.Container(
                                     content=ft.Text("3"),
@@ -180,7 +129,48 @@ def main(page):
                                     height=50,
                                     border_radius=10,
                                     ink=True,
-                                    on_click=lambda e: on_click(2, 2, )
+                                    on_click=lambda e: on_click(1, 2, text_widget),
+                                ),
+                            ],
+                            alignment=ft.MainAxisAlignment.END,
+                        ),
+                        ft.Row(
+                            [
+                                ft.Container(
+                                    content=ft.Text("1"),
+                                    margin=10,
+                                    padding=10,
+                                    alignment=ft.alignment.center,
+                                    bgcolor=ft.colors.CYAN_200,
+                                    width=50,
+                                    height=50,
+                                    border_radius=10,
+                                    ink=True,
+                                    on_click=lambda e: on_click(2, 0, text_widget),
+                                ),
+                                ft.Container(
+                                    content=ft.Text("2"),
+                                    margin=10,
+                                    padding=10,
+                                    alignment=ft.alignment.center,
+                                    bgcolor=ft.colors.CYAN_200,
+                                    width=50,
+                                    height=50,
+                                    border_radius=10,
+                                    ink=True,
+                                    on_click=lambda e: on_click(2, 1, text_widget),
+                                ),
+                                ft.Container(
+                                    content=ft.Text("3"),
+                                    margin=10,
+                                    padding=10,
+                                    alignment=ft.alignment.center,
+                                    bgcolor=ft.colors.CYAN_200,
+                                    width=50,
+                                    height=50,
+                                    border_radius=10,
+                                    ink=True,
+                                    on_click=lambda e: on_click(2, 2, text_widget),
                                 ),
                             ],
                             alignment=ft.MainAxisAlignment.END,
@@ -190,4 +180,6 @@ def main(page):
             )
         )
     )
-ft.app(target=main)
+ft.app(target=lambda page: main(page))
+
+#main(ft.Page(conn=None, session_id=None))
