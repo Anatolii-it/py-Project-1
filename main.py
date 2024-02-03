@@ -36,6 +36,14 @@ def main(page):
     def on_click(x, y):
         global step
         step = steps(x, y, step)
+        page.update()
+
+    #def on_click(x, y, text_widget):
+        #global step
+        #step = steps(x, y, step)
+        #text_widget.content = ft.Text(sim[step % 2])
+        #page.update()
+
 
     page.add(
         ft.Card(
@@ -52,7 +60,8 @@ def main(page):
                         ft.Row(
                             [
                                 ft.Container(
-                                    content=ft.Text("1"),
+
+                                    #content=ft.Text("1"),
                                     margin=10,
                                     padding=10,
                                     alignment=ft.alignment.center,
@@ -61,7 +70,8 @@ def main(page):
                                     height=50,
                                     border_radius=10,
                                     ink=True,
-                                    on_click=lambda e: on_click(0, 0),
+                                    on_click = lambda e: (print("хід -",sim[step % 2]),on_click(0, 0),print(desk))
+
                                 ),
                                 ft.Container(
                                     content=ft.Text("2"),
@@ -73,7 +83,7 @@ def main(page):
                                     height=50,
                                     border_radius=10,
                                     ink=True,
-                                    on_click=lambda e: on_click(0, 1)
+                                    on_click = lambda e: (print("хід -",sim[step % 2]),on_click(0, 1),print(desk))
                                 ),
                                 ft.Container(
                                     content=ft.Text("3"),
@@ -85,7 +95,7 @@ def main(page):
                                     height=50,
                                     border_radius=10,
                                     ink=True,
-                                    on_click=lambda e: on_click(0, 2),
+                                    on_click = lambda e: (print("хід -",sim[step % 2]),on_click(0, 2),print(desk))
                                 ),
                             ],
                             alignment=ft.MainAxisAlignment.END,
@@ -102,7 +112,7 @@ def main(page):
                                     height=50,
                                     border_radius=10,
                                     ink=True,
-                                    on_click=lambda e: on_click(1, 0),
+                                    on_click = lambda e: (print("хід -",sim[step % 2]),on_click(1, 0),print(desk))
                                 ),
                                 ft.Container(
                                     content=ft.Text("2"),
@@ -114,7 +124,7 @@ def main(page):
                                     height=50,
                                     border_radius=10,
                                     ink=True,
-                                    on_click=lambda e: on_click(1, 1),
+                                    on_click = lambda e: (print("хід -",sim[step % 2]),on_click(1, 1),print(desk))
                                 ),
                                 ft.Container(
                                     content=ft.Text("3"),
@@ -126,7 +136,7 @@ def main(page):
                                     height=50,
                                     border_radius=10,
                                     ink=True,
-                                    on_click=lambda e: on_click(1, 2),
+                                    on_click = lambda e: (print("хід -",sim[step % 2]),on_click(1, 2),print(desk))
                                 ),
                             ],
                             alignment=ft.MainAxisAlignment.END,
@@ -143,7 +153,7 @@ def main(page):
                                     height=50,
                                     border_radius=10,
                                     ink=True,
-                                    on_click=lambda e: on_click(2, 0),
+                                    on_click = lambda e: (print("хід -",sim[step % 2]),on_click(2, 0),print(desk))
                                 ),
                                 ft.Container(
                                     content=ft.Text("2"),
@@ -155,7 +165,7 @@ def main(page):
                                     height=50,
                                     border_radius=10,
                                     ink=True,
-                                    on_click=lambda e: on_click(2, 1),
+                                    on_click = lambda e: (print("хід -",sim[step % 2]),on_click(2, 1),print(desk))
                                 ),
                                 ft.Container(
                                     content=ft.Text("3"),
@@ -167,7 +177,7 @@ def main(page):
                                     height=50,
                                     border_radius=10,
                                     ink=True,
-                                    on_click=lambda e: on_click(2, 2),
+                                    on_click = lambda e: (print("хід -",sim[step % 2]),on_click(2, 2),print(desk))
                                 ),
                             ],
                             alignment=ft.MainAxisAlignment.END,
@@ -178,3 +188,4 @@ def main(page):
         )
     )
 ft.app(target=lambda page: main(page))
+
