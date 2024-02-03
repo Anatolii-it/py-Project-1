@@ -33,12 +33,9 @@ def main(page):
         except Exception as e:
             print(e)
 
-    def on_click(x, y, container):
+    def on_click(x, y):
         global step
         step = steps(x, y, step)
-        container.content = ft.Text(sim[step % 2])
-
-    text_widget = ft.Text(sim[step % 2])
 
     page.add(
         ft.Card(
@@ -55,7 +52,7 @@ def main(page):
                         ft.Row(
                             [
                                 ft.Container(
-                                    content=text_widget,
+                                    content=ft.Text("1"),
                                     margin=10,
                                     padding=10,
                                     alignment=ft.alignment.center,
@@ -64,7 +61,7 @@ def main(page):
                                     height=50,
                                     border_radius=10,
                                     ink=True,
-                                    on_click=lambda e: on_click(0, 0, text_widget),
+                                    on_click=lambda e: on_click(0, 0),
                                 ),
                                 ft.Container(
                                     content=ft.Text("2"),
@@ -76,7 +73,7 @@ def main(page):
                                     height=50,
                                     border_radius=10,
                                     ink=True,
-                                    on_click=lambda e: on_click(0, 1, text_widget),
+                                    on_click=lambda e: on_click(0, 1)
                                 ),
                                 ft.Container(
                                     content=ft.Text("3"),
@@ -88,7 +85,7 @@ def main(page):
                                     height=50,
                                     border_radius=10,
                                     ink=True,
-                                    on_click=lambda e: on_click(0, 2, text_widget),
+                                    on_click=lambda e: on_click(0, 2),
                                 ),
                             ],
                             alignment=ft.MainAxisAlignment.END,
@@ -105,7 +102,7 @@ def main(page):
                                     height=50,
                                     border_radius=10,
                                     ink=True,
-                                    on_click=lambda e: on_click(1, 0, text_widget),
+                                    on_click=lambda e: on_click(1, 0),
                                 ),
                                 ft.Container(
                                     content=ft.Text("2"),
@@ -117,7 +114,7 @@ def main(page):
                                     height=50,
                                     border_radius=10,
                                     ink=True,
-                                    on_click=lambda e: on_click(1, 1, text_widget),
+                                    on_click=lambda e: on_click(1, 1),
                                 ),
                                 ft.Container(
                                     content=ft.Text("3"),
@@ -129,7 +126,7 @@ def main(page):
                                     height=50,
                                     border_radius=10,
                                     ink=True,
-                                    on_click=lambda e: on_click(1, 2, text_widget),
+                                    on_click=lambda e: on_click(1, 2),
                                 ),
                             ],
                             alignment=ft.MainAxisAlignment.END,
@@ -146,7 +143,7 @@ def main(page):
                                     height=50,
                                     border_radius=10,
                                     ink=True,
-                                    on_click=lambda e: on_click(2, 0, text_widget),
+                                    on_click=lambda e: on_click(2, 0),
                                 ),
                                 ft.Container(
                                     content=ft.Text("2"),
@@ -158,7 +155,7 @@ def main(page):
                                     height=50,
                                     border_radius=10,
                                     ink=True,
-                                    on_click=lambda e: on_click(2, 1, text_widget),
+                                    on_click=lambda e: on_click(2, 1),
                                 ),
                                 ft.Container(
                                     content=ft.Text("3"),
@@ -170,7 +167,7 @@ def main(page):
                                     height=50,
                                     border_radius=10,
                                     ink=True,
-                                    on_click=lambda e: on_click(2, 2, text_widget),
+                                    on_click=lambda e: on_click(2, 2),
                                 ),
                             ],
                             alignment=ft.MainAxisAlignment.END,
@@ -181,5 +178,3 @@ def main(page):
         )
     )
 ft.app(target=lambda page: main(page))
-
-#main(ft.Page(conn=None, session_id=None))
