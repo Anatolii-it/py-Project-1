@@ -47,7 +47,7 @@ def main(page):
 
     page.add(
         ft.Card(
-            width = 480,
+            width = 380,
             content=ft.Container(
                 content=ft.Column(
                     [
