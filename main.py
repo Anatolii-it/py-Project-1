@@ -6,7 +6,7 @@ sim = ["X", "O"]
 
 def main(page):
     #global step
-    page.title = "Крестики-нолики"
+    page.title = "Хрестики-нулики"
 
     def check_victory(desk, s):
         for m_string in desk:
@@ -31,7 +31,7 @@ def main(page):
                 return step + 1
             else:
                 print("Ця клітина вже зайнята.")
-                page.add(ft.Text("Ця клітина вже зайнята."))
+                page.add(ft.Text("Ця клітина вже зайнята спробуйте іншу."))
             return step
         except Exception as e:
             print(e)
@@ -41,7 +41,7 @@ def main(page):
         page.add(ft.Text(sim[step % 2])),
 
         step = steps(x, y, step)
-        page.update(),
+    page.update(),
         #page.add(ft.Text(desk)),
 
     #def on_click(x, y, text_widget):
@@ -58,9 +58,9 @@ def main(page):
                 content=ft.Column(
                     [
                         ft.ListTile(
-                            title=ft.Text("Крестики-нолики"),
+                            title=ft.Text("Хрестики-нулики"),
                             subtitle=ft.Text(
-                                "Робіть ходи по черзі перший хід це- Х ."
+                                "Робіть ходи по черзі першій хід це- Х ."
                             ),
                         ),
                         ft.Row(
