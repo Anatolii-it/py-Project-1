@@ -38,11 +38,11 @@ def main(page):
 
     def on_click(x, y):
         global step
-        page.add(ft.Text(sim[step % 2])),
+        #page.add(ft.Text(sim[step % 2])),
 
         step = steps(x, y, step)
-    page.update(),
-        #page.add(ft.Text(desk)),
+        page.update(),
+        page.add(ft.Text(desk)),
 
     #def on_click(x, y, text_widget):
         #global step
@@ -192,5 +192,6 @@ def main(page):
             )
         )
     )
-ft.app(target=lambda page: main(page))
+ft.app(target=main)
+#ft.app(target=lambda page: main(page))
 
