@@ -5,6 +5,7 @@ desk = [[" " for _ in range(3)] for _ in range(3)]
 sim = ["X", "O"]
 
 def main(page):
+    #global step
     page.title = "Крестики-нолики"
 
     def check_victory(desk, s):
@@ -26,18 +27,22 @@ def main(page):
                 desk[lin][st] = sim[step % 2]
                 if check_victory(desk, sim[step % 2]):
                     print(f"Гравець {sim[step % 2]} здобув перемогу!")
+                    page.add(ft.Text(f"Гравець {sim[step % 2]} здобув перемогу!"))
                 return step + 1
             else:
                 print("Ця клітина вже зайнята.")
+                page.add(ft.Text("Ця клітина вже зайнята."))
             return step
         except Exception as e:
             print(e)
 
     def on_click(x, y):
         global step
+        page.add(ft.Text(sim[step % 2])),
+
         step = steps(x, y, step)
-        #output_text.value = (sim[step % 2),
-        page.update()
+        page.update(),
+        #page.add(ft.Text(desk)),
 
     #def on_click(x, y, text_widget):
         #global step
@@ -70,7 +75,7 @@ def main(page):
                                     height=50,
                                     border_radius=10,
                                     ink=True,
-                                    on_click = lambda e: (print("хід -",sim[step % 2]),on_click(0, 0),print(desk))
+                                    on_click = lambda e: on_click(0, 0)
 
                                 ),
                                 ft.Container(
@@ -83,7 +88,7 @@ def main(page):
                                     height=50,
                                     border_radius=10,
                                     ink=True,
-                                    on_click = lambda e: (print("хід -",sim[step % 2]),on_click(0, 1),print(desk))
+                                    on_click = lambda e: on_click(0, 1)
                                 ),
                                 ft.Container(
                                     content=ft.Text("3"),
@@ -95,7 +100,7 @@ def main(page):
                                     height=50,
                                     border_radius=10,
                                     ink=True,
-                                    on_click = lambda e: (print("хід -",sim[step % 2]),on_click(0, 2),print(desk))
+                                    on_click = lambda e: on_click(0, 2)
                                 ),
                             ],
                             alignment=ft.MainAxisAlignment.END,
@@ -112,7 +117,7 @@ def main(page):
                                     height=50,
                                     border_radius=10,
                                     ink=True,
-                                    on_click = lambda e: (print("хід -",sim[step % 2]),on_click(1, 0),print(desk))
+                                    on_click = lambda e: on_click(1, 0)
                                 ),
                                 ft.Container(
                                     content=ft.Text("2"),
@@ -124,7 +129,7 @@ def main(page):
                                     height=50,
                                     border_radius=10,
                                     ink=True,
-                                    on_click = lambda e: (print("хід -",sim[step % 2]),on_click(1, 1),print(desk))
+                                    on_click = lambda e: on_click(1, 1)
                                 ),
                                 ft.Container(
                                     content=ft.Text("3"),
@@ -136,7 +141,7 @@ def main(page):
                                     height=50,
                                     border_radius=10,
                                     ink=True,
-                                    on_click = lambda e: (print("хід -",sim[step % 2]),on_click(1, 2),print(desk))
+                                    on_click = lambda e: on_click(1, 2)
                                 ),
                             ],
                             alignment=ft.MainAxisAlignment.END,
@@ -153,7 +158,7 @@ def main(page):
                                     height=50,
                                     border_radius=10,
                                     ink=True,
-                                    on_click = lambda e: (print("хід -",sim[step % 2]),on_click(2, 0),print(desk))
+                                    on_click = lambda e: on_click(2, 0)
                                 ),
                                 ft.Container(
                                     content=ft.Text("2"),
@@ -165,7 +170,7 @@ def main(page):
                                     height=50,
                                     border_radius=10,
                                     ink=True,
-                                    on_click = lambda e: (print("хід -",sim[step % 2]),on_click(2, 1),print(desk))
+                                    on_click = lambda e: on_click(2, 1)
                                 ),
                                 ft.Container(
                                     content=ft.Text("3"),
@@ -177,7 +182,7 @@ def main(page):
                                     height=50,
                                     border_radius=10,
                                     ink=True,
-                                    on_click = lambda e: (print("хід -",sim[step % 2]),on_click(2, 2),print(desk))
+                                    on_click = lambda e: on_click(2, 2)
                                 ),
                             ],
                             alignment=ft.MainAxisAlignment.END,
