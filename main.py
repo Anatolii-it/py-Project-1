@@ -30,6 +30,6 @@ try:
                 break
             step += 1
         else:
-            print("Ця клитинка зайнята спробуйте іншу.")
+            print("Ця клітинка зайнята спробуйте іншу.")
 except Exception as e:
     print(e)
