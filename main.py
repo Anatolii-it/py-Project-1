@@ -36,6 +36,7 @@ def main(page):
     def on_click(x, y):
         global step
         step = steps(x, y, step)
+        #output_text.value = (sim[step % 2),
         page.update()
 
     #def on_click(x, y, text_widget):
@@ -60,8 +61,7 @@ def main(page):
                         ft.Row(
                             [
                                 ft.Container(
-
-                                    #content=ft.Text("1"),
+                                    content=ft.Text("1"),
                                     margin=10,
                                     padding=10,
                                     alignment=ft.alignment.center,
